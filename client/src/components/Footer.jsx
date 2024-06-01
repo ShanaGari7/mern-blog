@@ -24,11 +24,11 @@ export default function FooterCom() {
             <Footer.Title title='About' />
             <Footer.LinkGroup col>
                 <Footer.Link
-                    href='https://www.100jsprojects.com'
+                    href='#'
                     targets='_blank'
                     rel="noopener noreferrer"
                 >
-                    100 JS Projects 
+                    Tutorials 
                 </Footer.Link>
                 <Footer.Link
                     href='/about'
@@ -40,10 +40,10 @@ export default function FooterCom() {
             </Footer.LinkGroup>
             </div>
             <div>
-            <Footer.Title title='Follow Us' />
+            <Footer.Title title='Follow ' />
             <Footer.LinkGroup col>
                 <Footer.Link
-                    href='https://www.githun/ShanaGari7.com'
+                    href='#'
                     targets='_blank'
                     rel="noopener noreferrer"
                 >
