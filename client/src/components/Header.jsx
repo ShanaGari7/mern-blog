@@ -40,12 +40,16 @@ export default function Header() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('searchTerm', searchTerm);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch();
   };
 
   return (
@@ -69,7 +73,7 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+      <Button className='w-12 h-10 lg:hidden' color='gray' onClick={handleSearch}>
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
