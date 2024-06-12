@@ -133,7 +133,7 @@ export default function UpdatePost() {
             value={formData.category}
           >
             <option value="uncategorized">Select a category</option>
-            <option value="Beginner">Beginners</option>
+            <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Advanced">Advanced</option>
             <option value="Tips&Tricks">Tips & Tricks</option>
