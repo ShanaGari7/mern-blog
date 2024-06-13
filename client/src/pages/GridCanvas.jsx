@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "tailwindcss/tailwind.css";
-import { ref, uploadString } from "firebase/storage";
-import { getAuth } from "firebase/auth";
-import { storage } from "../firebase";
 import { Button, Alert } from "flowbite-react";
 
 function GridCanvas() {
@@ -103,20 +100,6 @@ function GridCanvas() {
     link.click();
   };
 
-  const savePattern = async () => {
-    const canvas = canvasRef.current;
-    const dataURL = canvas.toDataURL("image/png");
-    const user = getAuth().currentUser;
-    if (!user) {
-      alert("You must be logged in to save patterns.");
-      return;
-    }
-    const userId = user.uid;
-    const storageRef = ref(storage, `patterns/${userId}/${Date.now()}.png`);
-    await uploadString(storageRef, dataURL, "data_url");
-    setAlert("Pattern saved successfully to Firebase Storage");
-  };
-
   return (
     <div className="flex flex-col items-center p-4 space-y-4">
       <h1 className="text-2xl font-bold">Grid Canvas</h1>
@@ -127,7 +110,7 @@ function GridCanvas() {
             type="number"
             value={gridRows}
             onChange={(e) => setGridRows(Number(e.target.value))}
-            className="border rounded px-2 py-1 text-blue-500"
+            className="border rounded px-2 py-1 text-zinc-500"
           />
         </label>
         <label className="flex items-center space-x-2">
@@ -136,7 +119,7 @@ function GridCanvas() {
             type="number"
             value={gridCols}
             onChange={(e) => setGridCols(Number(e.target.value))}
-            className="border rounded px-2 py-1 text-blue-500"
+            className="border rounded px-2 py-1 text-zinc-500"
           />
         </label>
         <label className="flex items-center space-x-2">
@@ -159,17 +142,12 @@ function GridCanvas() {
         </label>
         <Button
           onClick={() => setEraseMode(!eraseMode)}
-          color="blue"
-          pill
-          outline
+          className="text-gray-700 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-400 hover:to-lime-200 focus:ring-2 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-200 font-medium rounded-lg text-sm text-center me-2 mb-2"
         >
           {eraseMode ? "Erase" : "Draw"}
         </Button>
-        <Button onClick={downloadCanvas} color="green" pill>
+        <Button onClick={downloadCanvas} className="text-gray-700 bg-gradient-to-r from-cyan-200 to-purple-600 hover:bg-gradient-to-l hover:from-purple-400 hover:to-cyan-600 focus:ring-2 focus:outline-none focus:ring-lime-200 dark:focus:ring-cyan-200 font-medium rounded-lg text-sm text-center me-2 mb-2" pill>
           Download
-        </Button>
-        <Button onClick={savePattern} color="purple" pill>
-          Save Pattern
         </Button>
       </div>
       {alert && (
