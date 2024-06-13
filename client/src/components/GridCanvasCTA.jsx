@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 export default function CallToAction() {
   return (
-    <div className="flex flex-col sm:flex-row p-3 border border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center">
+    <div className="m-2 flex flex-col sm:flex-row p-3 border border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center">
       <div className="flex-1 justify-center flex flex-col">
-        <h2 className="text-2xl">Want to learn more about Knitting?</h2>
+        <h2 className="text-2xl">Want to create your own grid patterns for knitting? </h2>
         <p className="text-gray-500 my-2">
-          Checkout these resources with Nimble Needles
+        Design your grid patterns and download them for further user !
         </p>
         <Button
           gradientDuoTone="purpleToPink"
