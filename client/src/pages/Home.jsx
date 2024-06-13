@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
+import GridCanvasCTA from '../components/GridCanvasCTA'
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -31,6 +32,10 @@ export default function Home() {
 
       <div className='mt-6 p-3 bg-amber-100 dark:bg-slate-700'>
         <CallToAction />
+      </div>
+
+      <div className='mt-6 p-3 bg-amber-100 dark:bg-slate-700'>
+        <GridCanvasCTA />
       </div>
 
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>

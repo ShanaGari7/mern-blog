@@ -14,6 +14,8 @@ import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
+import GridCanvas from "./pages/GridCanvas";
+import NotFound from "./pages/NotFound"; // Import the NotFound component
 
 export default function App() {
   return (
@@ -25,7 +27,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path='/search' element={<Search />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
@@ -35,6 +37,8 @@ export default function App() {
         </Route>
         <Route path="/projects" element={<Projects />} />
         <Route path="/post/:postSlug" element={<PostPage />} />
+        <Route path="/grid" element={<GridCanvas />} />
+        <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
       </Routes>
       <Footer />
     </BrowserRouter>
